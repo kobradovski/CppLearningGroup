@@ -8,4 +8,6 @@ Legend : M - Mario Obradović
          
          ex. Task: 
                   "Do your homework - I+, B+" --> it means Ivan and Boris did that task, and Mario still didn't
+                  
+  TUTORIAL ON GITHUB: https://guides.github.com/activities/hello-world/
                  
