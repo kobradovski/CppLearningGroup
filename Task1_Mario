@@ -1,13 +1,17 @@
 #include <stdio.h>
 #include <iostream>
 
-void stepko (unsigned short int lowerLimit, unsigned short int upperLimit) {
-    if (lowerLimit>upperLimit) return;
+int stepko (unsigned short int lowerLimit, unsigned short int upperLimit) {
     if (abs(lowerLimit%10 - lowerLimit/10) == 1 || lowerLimit/10 == 0) {
         std::cout << lowerLimit << ", " << std::endl;
+        lowerLimit = lowerLimit + 1;
+        return 1 + stepko (lowerLimit,upperLimit);
     }
-    lowerLimit = lowerLimit + 1;
-    stepko (lowerLimit,upperLimit);
+    else if (lowerLimit>upperLimit) return 0;
+    else {
+        lowerLimit += 1;
+        return stepko (lowerLimit,upperLimit);
+    }
 }
 
 int main() {
@@ -21,7 +25,9 @@ int main() {
 	
 	std::cout << "Gornja granica je:" << dg <<", a gornja granica je:" << gg << std::endl;
 	
-	stepko(dg,gg);
+	int output = stepko(dg,gg);
+	
+	std::cout << "Takvih brojeva ima:" << output << std::endl;
 	
 	return 0;
 }
